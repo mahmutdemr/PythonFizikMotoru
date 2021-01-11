@@ -13,29 +13,21 @@ class Simulasyon:
         self.ctx = ctx
         self.bilgi = bilgi
         self.nesneler = []
-        self.duvarlar = []
-        self.yeniDeger = 1
-        self.slider = slider
-
-    def StartSim(self):
-        
+        self.slider = slider        
         KureSprite.canvas = self.ctx
 
-        birimKure = SphereCollider(Vector2(0, 0), 25)
-        birimKare = BoxCollider(Vector2(0, 0))
-        
+
+    def StartSim(self):
 
         rigid1 = Rigid(Vector2(0,0), 1, Vector2(WIDTH / 2, genislik / 2), True, BoxCollider(Vector2(0, 0)))
         self.NesneUret("Duvar1", rigid1, KareSprite(), Vector2(WIDTH / 50 - 2, 1))
+        
         rigid2 = Rigid(Vector2(0,0), 1, Vector2(WIDTH / 2, HEIGHT - genislik / 2), True, BoxCollider(Vector2(0, 0)))
         self.NesneUret("Duvar2", rigid2, KareSprite(), Vector2(WIDTH / 50 - 2, 1))
         rigid3 = Rigid(Vector2(0, 0), 1, Vector2(genislik / 2,HEIGHT / 2), True, BoxCollider(Vector2(0, 0)))
         self.NesneUret("Duvar3", rigid3, KareSprite(), Vector2(1, (HEIGHT / 50) - 2))
         rigid4 = Rigid(Vector2(0,0), 1, Vector2(WIDTH - genislik / 2, HEIGHT / 2), True, BoxCollider(Vector2(0, 0)))
         self.NesneUret("Duvar4", rigid4, KareSprite(), Vector2(1, (HEIGHT / 50) - 2))
-
-
-
 
         rigid1 = Rigid(Vector2(5, 3), 100, Vector2(100, 100), False, SphereCollider(Vector2(0, 0), 25 * 1.5))
         self.NesneUret("nesne1", rigid1, KureSprite(), Vector2(1.5, 1.5))
@@ -56,11 +48,6 @@ class Simulasyon:
         self.NesneUret("nesne1", rigid1, KureSprite(), Vector2(1, 1))
         rigid1 = Rigid(Vector2(0,0), 1, Vector2(900, 100), False, SphereCollider(Vector2(0, 0), 25))
         self.NesneUret("nesne1", rigid1, KureSprite(), Vector2(1, 1))
-
-
-
-
-
         rigid1 = Rigid(Vector2(0,0), 1, Vector2(300, 300), False, SphereCollider(Vector2(0, 0), 25))
         self.NesneUret("nesne1", rigid1, KureSprite(), Vector2(1, 1))
         rigid1 = Rigid(Vector2(0,0), 1, Vector2(400, 400), False, SphereCollider(Vector2(0, 0), 25))
@@ -117,7 +104,6 @@ class Simulasyon:
             i.Guncelle()
 
     def Cizdir(self):
-        # self.ctx.delete("all")
         self.bilgi.delete("all")
         j = 0
         momentum = 0
@@ -128,7 +114,5 @@ class Simulasyon:
             # j += 1
 
         # self.bilgi.create_text(150, 10 + 15 * j, text="Carpisma : " + str(Carpisma.carpismaSayisi) + "  Momentum : " + str(momentum))
-        # for i in Carpisma.points:
-        #     self.ctx.create_line(Carpisma.tumNesneler[4].konum.x, Carpisma.tumNesneler[4].konum.y, i.x, i.y)
 
 

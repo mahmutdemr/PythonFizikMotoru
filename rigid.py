@@ -23,15 +23,6 @@ class Rigid:
         Rigid.rigidIdleri.append(id)
         self.id = id
     
-    def Yon(self, hizYon):
-        if hizYon:
-            self.hiz = Vector2(self.hiz.x * - 1, self.hiz.y)
-
-        if self.hiz.x > 0:
-            return True
-        else:
-            return False
-    
     def Degerler(self):
         return "hiz:" + str(round(self.hiz.x)) + " Agirlik:" + str(round(self.agirlik)) + " Momentum:" + str(round(self.Momentum())) + ""
 

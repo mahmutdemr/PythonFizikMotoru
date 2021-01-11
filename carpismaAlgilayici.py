@@ -5,21 +5,8 @@ import math
 class Carpisma:
 
     tumNesneler = []
-    tumDuvarlar = []
-    points = []
     nesneSayisi = 0
-    duvarSayisi = 0
     carpismaSayisi = 0
-
-    @staticmethod
-    def NesneEkle(nesne):
-        Carpisma.tumNesneler.append(nesne)
-        Carpisma.nesneSayisi += 1
-
-    @staticmethod
-    def DuvarEkle(duvar):
-        Carpisma.tumDuvarlar.append(duvar)
-        Carpisma.duvarSayisi += 1
 
     @staticmethod
     def CarpismaHesapla():
@@ -46,10 +33,6 @@ class Carpisma:
                         tumRigidler[j].temasEdenler.remove(tumRigidler[i].id)
                         tumRigidler[i].temasEdenler.remove(tumRigidler[j].id)
 
-
-        
-
-
     @staticmethod
     def Carpistir(sol, sag, carpismaNoktasi):
         Carpisma.carpismaSayisi += 1
@@ -61,7 +44,7 @@ class Carpisma:
         elif sol.isKinematic:
             Carpisma.DinamikVeKinematik(sol, sag, carpismaNoktasi)
         else:
-            Carpisma.DinamikVeKinematik(sag, sol, carpismaNoktasi)
+            Carpisma.Version(sag, sol, carpismaNoktasi)
 
 
     @staticmethod
@@ -80,7 +63,6 @@ class Carpisma:
 
     @staticmethod
     def DinamikVeKinematik(sabit, hareketli, point):
-        Carpisma.points.append(point)
         hiz = hareketli.BilgiAl()[0]
 
         if abs(point.y - hareketli.konum.y) < abs(point.x - hareketli.konum.x):
